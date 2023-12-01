@@ -5,6 +5,7 @@ const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
 const userRoutes = require('./routes/userRoutes.js')
+const blogRoutes = require('./routes/blogRoutes.js')
 require('dotenv').config()
 
 //body parser
@@ -21,6 +22,7 @@ app.get('/',(req,res)=>{
     res.send('hello bloging app')
 })
 app.use('/',userRoutes)
+app.use('/blog',blogRoutes)
 
 app.listen(process.env.PORT,()=>{
     console.log('listening to the server',process.env.PORT)

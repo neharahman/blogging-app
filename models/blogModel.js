@@ -5,7 +5,7 @@ const blogSchema = new Schema({
         type:String,
         required: true
     },
-    discription:{
+    description:{
         type:String,
         required: true
     },
@@ -13,11 +13,12 @@ const blogSchema = new Schema({
         type:String
     },
     createdAt:{
-        type:String
+        type:Date,
+        default:Date.now
     },
     createdBy:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        ref:'user'
     }
     
 })
