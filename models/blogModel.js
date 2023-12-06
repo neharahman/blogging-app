@@ -19,6 +19,11 @@ const blogSchema = new Schema({
     createdBy:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'user'
+    },
+    total_likes:{
+        type:Number,
+        default:0,
+        ref:'likes'
     }
     
 })

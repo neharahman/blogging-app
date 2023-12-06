@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const blogModel = require("../models/blogModel")
 const { verifyToken } = require("../others/jwtToken")
 
@@ -50,6 +51,26 @@ module.exports.searchBlogs = async (req,res) =>{
             })
         }
     }catch(err){
+        throw new Error(err)
+    }
+}
+
+
+//search by id get....................................................
+module.exports.displayBlogById = async (req,res) =>{
+    try{
+        console.log('inside dispalyBlogById')
+        const {id} = req.params
+        console.log(id)
+        const findBlogById = await blogModel.findById({_id:id})
+        console.log(findBlogById)
+        res.status(200).json({
+            status:'success',
+            message:'blog display by id',
+            data:findBlogById
+        })
+    }catch(err){
+        console.log('error inside displayBlogById')
         throw new Error(err)
     }
 }
