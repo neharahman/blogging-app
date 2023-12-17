@@ -7,10 +7,9 @@ module.exports.commentBlog = async (req,res) =>{
         const {comment} = req.body
         const token = await verifyToken(authorization)
         if(token){
-            if(blog_id){
-
-                |
-            }
+            res.status(200).json({
+                message:'comment added'
+            })
         }
         else{
             res.status(401).json({
